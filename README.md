@@ -1,10 +1,5 @@
 # Diyabet Tahmini & KMeans Kümeleme Projeleri
 
-Bu depo, **Diyabet Tahmini** ve **KMeans Kümeleme** projelerini içerir.  
-Projeler, Python ve popüler makine öğrenimi kütüphaneleri kullanılarak geliştirilmiştir.
-
----
-
 ## 1. Diyabet Tahmini – Karar Ağacı Sınıflandırıcı
 
 Bu proje, seçilen medikal özelliklere dayanarak diyabeti tahmin etmek için **Decision Tree Classifier** kullanır.
@@ -67,6 +62,8 @@ Bu proje, KMeans algoritmasını kullanarak rastgele oluşturulmuş veri kümele
 #### 4. Görselleştirme
 - `matplotlib` ile veri noktaları ve kümeleri renklerle gösterilir  
 - Küme merkezleri vurgulanır ve legend ile açıklanır.
+
+
  ![KMeans Kümeleme](kmeans_plot.png)
 
 ---
