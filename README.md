@@ -81,7 +81,10 @@ Bu proje, **Decision Tree Classifier** kullanılarak diyabet tahmini yapılması
 - `max_depth` için değerler denenir: `[3, 5, 7, None, 15]`  
 - 5 katlı çapraz doğrulama ile en iyi hiperparametre seçilir  
 - En iyi parametre ile model tekrar test edilir ve performans raporlanır
+
+
 ![Karar Ağacı](decision_tree_plot.png)
+
 ---
 
 ## Kullanılan Teknolojiler
