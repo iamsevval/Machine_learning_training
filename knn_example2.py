@@ -6,16 +6,16 @@ from sklearn.model_selection import ParameterGrid
 from sklearn.pipeline import Pipeline
 import numpy as np
 
-# Load data
+
 X = load_iris().data
 
-# Pipeline
+
 pipe = Pipeline([
     ("scaler", StandardScaler()),
     ("kmeans", KMeans(random_state=42))
 ])
 
-# Parameter grid
+
 param_grid = {
     "kmeans__n_clusters": list(range(2, 11)),
     "kmeans__init": ["k-means++", "random"],

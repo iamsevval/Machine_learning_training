@@ -18,12 +18,12 @@ dt = DecisionTreeClassifier(max_depth = 100 , random_state = 42)
 dt.fit(x_train ,y_train ) 
 
 scores = cross_val_score(dt,x, y, cv= 5)
-#5 kere birbirinden farklı olmak üzere veri setinden bilgi alıp öğret.(5'e ayırdık)
-#5 kere alınan veri ilk test verisi olarak alınır kalanı test verisi olarak kullanılır.
-#Egitmeden verilip de olabilir.
+# n katli capraz dogrulama:
+# Veri 5 parcaya ayrilir. Her iterasyonda 1 parca test verisi, kalanlar egitim verisi olarak kullanilir.
+# Bu sayede modelin farkli veri bolumlerinde ne kadar iyi genellestigi olculur.
 
 plt.figure(figsize =(12,8))
-tree.plot_tree(dt, feature_names = x.columns, class_names = ["Sağlam" , "Kanser" ] ,filled = True , rounded = True )
+tree.plot_tree(dt, feature_names = x.columns, class_names = ["Saglam" , "Kanser" ] ,filled = True , rounded = True )
 plt.show()
 
 y_pred = dt.predict(x_test)
@@ -32,10 +32,9 @@ print(accuracy_score(y_pred , y_test))
 print(confusion_matrix(y_pred , y_test))
 print(f1_score(y_pred , y_test))
 print(classification_report(y_pred, y_test))
-#Çapraz doğrulama 
-print("Her fold için doğruluk skoru:", scores)
-print("Ortalama doğruluk scoru:", scores.mean())
-#Verileri verip eğitim ve test verisi çıkart
+print("Her fold icin dogruluk skoru:", scores)
+print("Ortalama dogruluk scoru:", scores.mean())
+
 
 paramgrid = {
     "max_depth" : [ 3, 5, 7, None, 15]}
@@ -55,4 +54,9 @@ bestmodel = gridsearch.best_estimator_
 y_pred = bestmodel.predict(x_test)
 
 print(classification_report(y_pred, y_test))
+# Bu veri seti dogrudan train_test_split ile egitilip test edilebilir.
+# Ancak cross validation kullanmak modelin genelleme yetenegini daha guvenilir olcmenizi saglar.
+# cross_val_score her fold icin modeli sifirdan egitir ve test eder.
+# Boylece model egitilmeden test edilmis olmaz, her seferinde yeni bir egitim yapilir.
+
   
