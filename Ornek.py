@@ -8,7 +8,6 @@ from sklearn import tree
 # Veri oku
 df = pd.read_csv("diabetes_data_upload.csv")
 
-
 df = df.replace({'Yes': 1, 'No': 0})
 df['class'] = df['class'].replace({'Negative': 0, 'Positive': 1})
 

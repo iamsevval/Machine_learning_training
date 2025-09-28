@@ -6,15 +6,12 @@ from sklearn.model_selection import ParameterGrid
 from sklearn.pipeline import Pipeline
 import numpy as np
 
-
 X = load_iris().data
-
 
 pipe = Pipeline([
     ("scaler", StandardScaler()),
     ("kmeans", KMeans(random_state=42))
 ])
-
 
 param_grid = {
     "kmeans__n_clusters": list(range(2, 11)),

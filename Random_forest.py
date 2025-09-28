@@ -3,7 +3,6 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, f1_score, classification_report
 
-
 df = pd.read_csv("oral_cancer_prediction_dataset.csv")
 
 # Kategorik degiskenleri donustur
@@ -24,7 +23,6 @@ rf.fit(x_train, y_train)
 print("Ozellik Onemleri:", rf.feature_importances_)
 
 y_pred = rf.predict(x_test)
-
 
 print("Accuracy:", accuracy_score(y_test, y_pred))
 print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
